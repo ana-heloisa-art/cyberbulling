@@ -1,0 +1,344 @@
+
+
+Pular para o conteúdo
+Como usar o E-mail de SEED com leitores de tela
+1 de 7.020
+site
+Caixa de entrada
+
+LAURA CRISTIANE PANSERA <laura.pansera@escola.pr.gov.br>
+08:40 (há 0 minuto)
+para mim
+
+<!DOCTYPE html>
+<html lang="pt-BR" id="htmlRoot">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Cidadania Digital - Combate ao Cyberbullying</title>
+    <style>
+        :root {
+            --bg-body: #f1f5f9;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --primary: #059669;
+            --secondary: #0284c7;
+            --accent: #d97706;
+            --border-color: #cbd5e1;
+            --font-size: 1rem;
+        }
+
+        .high-contrast {
+            --bg-body: #000000;
+            --bg-card: #121212;
+            --text-main: #ffffff;
+            --primary: #ffff00;
+            --secondary: #00ffff;
+            --accent: #ff3333;
+            --border-color: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-size: var(--font-size);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .accessibility-bar {
+            background-color: var(--text-main);
+            color: #fff;
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .accessibility-bar button {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .accessibility-bar button:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .accessibility-bar button:focus {
+            outline: 3px solid var(--accent);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem 3rem 1rem;
+        }
+
+        header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2.4rem;
+            color: #ffffff !important;
+            letter-spacing: -0.5px;
+        }
+
+        main {
+            max-width: 950px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            transition: transform 0.2s;
+        }
+
+        section:hover {
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.4rem;
+            margin-top: 0;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        @media(min-width: 768px) {
+            .media-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        img, iframe {
+            width: 100%;
+            height: 240px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        .destaque-escola {
+            background-color: rgba(5, 150, 105, 0.08);
+            border-left: 6px solid var(--primary);
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .quiz-box {
+            background: var(--bg-card);
+            border: 2px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .quiz-options button {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.6rem 0;
+            background: var(--bg-body);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            text-align: left;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .quiz-options button:hover {
+            background: var(--secondary);
+            color: #fff;
+        }
+
+        #quizFeedback {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: var(--text-main);
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 4rem solid var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="accessibility-bar" role="region" aria-label="Ferramentas de Acessibilidade">
+        <span>Acessibilidade:</span>
+        <button onclick="mudarFonte(1)" aria-label="Aumentar o tamanho do texto">A+</button>
+        <button onclick="mudarFonte(-1)" aria-label="Diminuir o tamanho do texto">A-</button>
+        <button onclick="alternarContraste()" aria-label="Ativar ou desativar o modo de alto contraste">Alto Contraste</button>
+        <button onclick="lerPagina()" aria-label="Ouvir o conteúdo da página">🔊 Ouvir Página</button>
+    </div>
+
+    <header>
+        <h1>Cidadania Digital: Stop Cyberbullying</h1>
+        <p>Promovendo respeito, segurança e empatia na nossa comunidade escolar</p>
+    </header>
+
+    <main>
+        <section id="conceito">
+            <h2>O que é o Cyberbullying?</h2>
+            <p>O cyberbullying é a prática de intimidar, humilhar, perseguir ou difamar pessoas — especialmente jovens e adolescentes — utilizando ferramentas digitais, como redes sociais, salas de bate-papo, jogos online e aplicativos de mensagens instantâneas.</p>
+           
+            <div class="media-grid">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Jovens conversando e sorrindo, representando a convivência saudável e segura entre colegas.">
+                <iframe src="https://www.youtube.com/embed/E596K224Wio" title="Vídeo explicativo sobre prevenção ao cyberbullying nas escolas" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="causas">
+            <h2>Quais são as Causas?</h2>
+            <p>O comportamento hostil no ambiente virtual costuma ser impulsionado por fatores psicológicos e sociais:</p>
+            <ul>
+                <li><strong>Desinibição Online:</strong> A ilusão de anonimato que faz com que agressores ajam de forma que jamais agiriam pessoalmente.</li>
+                <li><strong>Cultura de Cancelamento e Curtidas:</strong> A busca por engajamento ou status em grupos através da exposição alheia.</li>
+                <li><strong>Falta de Empatia Digital:</strong> A barreira da tela impede que o agressor veja o sofrimento imediato gerado pela ofensa.</li>
+            </ul>
+        </section>
+
+        <section id="contexto">
+            <h2>Nosso Contexto: Uma Comunidade de 1.500 Alunos</h2>
+            <p>Imagine o fluxo diário de interações em um colégio de <strong>1.500 estudantes</strong>. A tecnologia conecta a todos em segundos, mas também amplifica conflitos quando usada de maneira inadequada.</p>
+           
+            <div class="destaque-escola">
+                <p><strong>O Efeito Multiplicador:</strong> Um boato compartilhado em grupos de mensagens pode atingir centenas de alunos antes mesmo do início das aulas presenciais. Isso afeta o clima escolar, diminui o rendimento acadêmico e causa sérios danos à saúde mental. Na nossa escola, o respeito é a regra principal.</p>
+            </div>
+        </section>
+
+        <section id="leis">
+            <h2>O Peso da Lei</h2>
+            <p>A internet não é um espaço sem regras. As atitudes cometidas online possuem consequências legais previstas no direito brasileiro:</p>
+            <ul>
+                <li><strong>Lei nº 13.185/2015:</strong> Institui o Programa de Combate à Intimidação Sistemática em âmbito nacional.</li>
+                <li><strong>Crimes contra a Honra (Código Penal):</strong> Injúria, difamação e calúnia praticadas em redes sociais possuem agravantes por alcançarem um público massivo instantaneamente.</li>
+                <li><strong>Responsabilidade Civil e Penal:</strong> Pais ou responsáveis respondem por atos cometidos por menores de idade, além das medidas socioeducativas aplicáveis aos adolescentes.</li>
+            </ul>
+        </section>
+
+        <section id="solucoes">
+            <h2>Soluções Práticas e Quiz</h2>
+            <p>Como podemos mudar essa realidade? O primeiro passo é a conscientização e a atitude ativa.</p>
+            <ul>
+                <li><strong>Não repasse:</strong> Viu uma ofensa ou fake news sobre um colega? Não encaminhe. Apague e denuncie.</li>
+                <li><strong>Guarde provas:</strong> Tire capturas de tela (prints) caso seja vítima ou testemunha, para facilitar denúncias seguras.</li>
+                <li><strong>Fale sobre isso:</strong> Rompa o silêncio procurando ajuda na escola ou em casa.</li>
+            </ul>
+
+            <div class="quiz-box">
+                <h3>Teste Rápido: O que você faria?</h3>
+                <p id="quizPergunta">Você recebeu em um grupo de mensagens uma foto constrangedora de um colega da escola. Qual deve ser a sua atitude correta?</p>
+                <div class="quiz-options">
+                    <button onclick="responderQuiz(1)">A) Repassar para os amigos mais próximos para darem risada.</button>
+                    <button onclick="responderQuiz(2)">B) Ignorar, apagar a imagem imediatamente e avisar o colega ou um professor.</button>
+                    <button onclick="responderQuiz(3)">C) Comentar na foto fazendo uma piada irônica.</button>
+                </div>
+                <p id="quizFeedback" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section id="ajuda">
+            <h2>Onde Achar Ajuda?</h2>
+            <p>Se você estiver sofrendo cyberbullying ou conhecer alguém que precise de apoio, existem canais seguros de atendimento:</p>
+            <ul>
+                <li><strong>Na Escola:</strong> Procure imediatamente a Orientação Educacional, a Coordenação ou qualquer professor.</li>
+                <li><strong>SaferNet Brasil:</strong> Organização de referência em direitos humanos na internet (<a href="https://www.safernet.org.br" target="_blank" rel="noopener">www.safernet.org.br</a>).</li>
+                <li><strong>Disque 100:</strong> Direitos Humanos do Governo Federal (ligação gratuita e sigilosa).</li>
+                <li><strong>Delegacias Especializadas:</strong> Proteção à Criança e ao Adolescente ou crimes virtuais para denúncias formais.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Cidadania Digital - Projeto Escolar de Combate ao Cyberbullying.</p>
+    </footer>
+
+    <script>
+        let tamanhoFonte = 1;
+        function mudarFonte(direcao) {
+            tamanhoFonte += direcao * 0.1;
+            if (tamanhoFonte < 0.85) tamanhoFonte = 0.85;
+            if (tamanhoFonte > 1.4) tamanhoFonte = 1.4;
+            document.getElementById('htmlRoot').style.fontSize = tamanhoFonte + 'rem';
+        }
+
+        function alternarContraste() {
+            document.body.classList.toggle('high-contrast');
+        }
+
+        function lerPagina() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const textoParaLer = document.querySelector('main').innerText;
+                const mensagem = new SpeechSynthesisUtterance(textoParaLer);
+                mensagem.lang = 'pt-BR';
+                mensagem.rate = 1.0;
+                window.speechSynthesis.speak(mensagem);
+                alert("Iniciando leitura por voz. Para interromper, feche ou recarregue a página.");
+            } else {
+                alert("Seu navegador não suporta o recurso de leitura por voz.");
+            }
+        }
+
+        function responderQuiz(opcao) {
+            const feedback = document.getElementById('quizFeedback');
+            if (opcao === 2) {
+                feedback.style.color = '#059669';
+                feedback.innerText = "Parabéns! Resposta correta. Apagar, não repassar e buscar apoio protege a vítima e interrompe o ciclo do cyberbullying.";
+            } else {
+                feedback.style.color = '#d97706';
+                feedback.innerText = "Incorreto. Repassar ou comentar conteúdos vexatórios torna você co-responsável pela agressão. A atitude correta é não compartilhar e buscar ajuda.";
+            }
+        }
+    </script>
+</body>
+</html>
